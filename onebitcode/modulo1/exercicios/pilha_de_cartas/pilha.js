@@ -1,16 +1,9 @@
-let baralho = ['Ás de paus', '3 de copas', '5 de ouro', 'Coringa']
+let baralho = []
 
 options = ''
 
 do {
-  options = prompt('Cartas disponíveis:' +
-  '\n 1 - ' + baralho[0] +
-  '\n 2 - ' + baralho[1] +
-  '\n 3 - ' + baralho[2] +
-  '\n 4 - ' + baralho[3] +
-  '\n 5 - ' + baralho[4] +
-  '\n 5 - ' + baralho[5] +
-  '\n 5 - ' + baralho[6] +
+  options = prompt('Cartas disponíveis: ' + baralho.length +
   '\n\nEscolha uma opção: ' +
   '\n 1 - Adicionar uma carta' +
   '\n 2 - Puxar uma carta' +
@@ -19,15 +12,22 @@ do {
 
   switch (options) {
     case '1':
-      baralho.unshift(prompt('Qual o nome da carta que deseja adicionar?'))
+      let addPlayingCard = (prompt('Qual o nome da carta que deseja adicionar?'))
+      baralho.unshift(addPlayingCard)
       break
     case '2':
-      let cartaPuxada = baralho.shift()
-      alert(cartaPuxada)
+      if (baralho.length > 0) {
+        let cartaPuxada = baralho.shift()
+        alert('Você retirou o ' + cartaPuxada + ' do baralho!')
+      }else {
+        alert('Não há nenhuma carta no baralho!')
+      }
       break
     case '3':
-      alert('Fianlizando programa')
+      alert('Finalizando programa')
       break
+    default:
+      alert('ERRO! Por favor, digite uma opção válida')
   }
 } while (options !== '3')
 

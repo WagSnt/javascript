@@ -1,17 +1,15 @@
-let waitingList = ['Stephanie', 'Otávio', 'Amanda', 'Berenice', 'Claudio', 'Vanessa']
-options = ''
+let waitingList = []
+let options = ''
+
+
 do {
-  let options = prompt ('Lista de espera:' +
-  '\n1º - ' + waitingList[0] +
-  '\n2º - ' + waitingList[1] +
-  '\n3º - ' + waitingList[2] +
-  '\n4º - ' + waitingList[3] +
-  '\n5º - ' + waitingList[4] +
-  '\n6º - ' + waitingList[5] +
-  '\n7º - ' + waitingList[6] +
-  '\n8º - ' + waitingList[7] +
-  '\n9º - ' + waitingList[8] +
-  '\n10º - ' + waitingList[9] +
+  let patient = ''
+  for (let i = 0; i < waitingList.length; i++) {
+    patient += (i + 1) + 'º - ' + waitingList[i] + '\n'
+  }
+
+  options = prompt ('Lista de espera:\n' +
+  patient +
   '\n\nEscolha uma opção:' +
   '\n1 - Novo paciente' +
   '\n2 - Consultar paciente' +
@@ -20,11 +18,16 @@ do {
 
   switch (options) {
     case '1':
-      waitingList.push(prompt('Qual o nome do paciente?'))
+      let newPatient = (prompt('Qual o nome do paciente?'))
+      waitingList.push(newPatient)
       break
     case '2':
-      let consulted =waitingList.shift()
-      alert('Paciente em consulta: ' + consulted)
+      if (waitingList.length > 0) {
+        let consulted = waitingList.shift()
+        alert('Paciente em consulta: ' + consulted)
+      } else {
+        alert('Não há pacientes na fila de espera')
+      }
       break
     case '3':
       alert('Finalizando sistema do Hospital Wag...')
@@ -32,6 +35,6 @@ do {
     default:
       alert('ERRO! Por favor, escolha uma opção válida.')
   }
-} while(options !== 3)
+} while(options !== '3')
 
 alert('Programa finalizado!')
