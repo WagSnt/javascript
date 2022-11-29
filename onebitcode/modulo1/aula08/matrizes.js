@@ -23,9 +23,9 @@ const matriz = [
 
 console.table(matriz)
 
-for (let i = 0; i < matriz.length; i++)
-for (let j = 0; j <matriz[i].length; j++)
-const element = matriz[i][j]
-console.log('posição: (' + i +  ', ' + j + ') valor: '  + element)
-
-console.log(matriz[1])
+for (let i = 0; i < matriz.length; i++) {
+  for (let j = 0; j < matriz[i].length; j++) {
+    const element = matriz[i][j]
+    console.log('Posição: (' + i + ', ' + j + ') valor: ' + element)
+  }
+}
