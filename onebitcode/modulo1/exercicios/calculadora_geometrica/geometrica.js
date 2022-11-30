@@ -8,7 +8,7 @@ do {
     '\n2 - Área do retângulo' +
     '\n3 - Área do quadrado' +
     '\n4 - Área do trapézio' +
-    '\n5 - Área do triângulo' +
+    '\n5 - Área do círculo' +
     '\n6 - Sair'
   )
 
@@ -36,18 +36,49 @@ do {
       let rectangleResult = rectangleArea(rectangleBase, rectangleHeight)
       
       alert('Área do Retângulo: ' + rectangleBase + ' x ' + rectangleHeight + ' = ' + rectangleResult)
+      break
     case '3':
-      function squareArea(){
-      result = side * side
+      function squareArea(a){
+      result = a * a
       return result
     }
-    let side = prompt('Digite o valor do lado:')
 
-    alert('Área do Quadrado: ' + side + '² = ' + result)
+    let side = prompt('Digite o valor do lado:')
+    squareResults = squareArea(side)
+
+    alert('Área do Quadrado: ' + side + '² = ' + squareResults)
 
     case '4':
+      function trapezeArea(biggerBase, minorBase, trapezeHeight) {
+        result = ((biggerBase + minorBase) * trapezeHeight) / 2
+        return result
+      }
+
+      const biggerBaseInfo = parseFloat(prompt('Digite o valor da base maior:'))
+      const minorBaseInfo = parseFloat(prompt('Digite o valor da base menor:'))
+      const trapezeHeightInfo = parseFloat(prompt('Digite o valor da altura:'))
+      const trapezeResult = trapezeArea(biggerBaseInfo, minorBaseInfo, trapezeHeightInfo) 
+
+      alert('Área do Trapézio: (' + biggerBaseInfo + ' + ' + minorBaseInfo + ') x ' + trapezeHeightInfo + ' % 2 = ' + trapezeResult)
+      break
     case '5':
+      function circleArea(raio) {
+        result = 3.14 * (raio * raio)
+        return result
+      }
+
+      const raioInfo = parseFloat(prompt('Digite o valor do raio:'))
+      const circleAreaResult = circleArea(raioInfo)
+
+      alert('Área do círculo: pi x ' + raioInfo + '² = ' + circleAreaResult)
+      break
     case '6':
+      alert('Finalizando programa...')
+      break
     default:
+      alert('ERRO! Por favor, digite uma alternativa válida.')
+      break
   }
 } while(options !== '6')
+
+alert('Programa finalizado.')
