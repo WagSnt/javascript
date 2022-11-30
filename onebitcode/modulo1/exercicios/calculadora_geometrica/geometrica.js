@@ -38,10 +38,11 @@ do {
       alert('Área do Retângulo: ' + rectangleBase + ' x ' + rectangleHeight + ' = ' + rectangleResult)
     case '3':
       function squareArea(){
-      let side = prompt('Digite o valor do lado:')
       result = side * side
       return result
     }
+    let side = prompt('Digite o valor do lado:')
+
     alert('Área do Quadrado: ' + side + '² = ' + result)
 
     case '4':
