@@ -1,10 +1,93 @@
 let jobs =  []
 
+execute()
 
-function menu() {
-  let options = ''
-  do {
-    options = prompt(
+function listJobsOpenings () { // Lista de vagas
+  const jobOpeningsInText = jobs.reduce(function (finalText, job, index){
+    //1. nome, (x candidatos)
+    finalText += index + '. '
+    finalText += job.nome
+    finalText += ' (' + job.candidates.length + ' candidatos)\n'
+    return finalText
+  }, '')
+
+  alert(jobOpeningsInText)
+}
+
+function newJobVacancy () { // Cadastrar nova vaga
+  const name = prompt('Informe um nome para a vaga:')
+  const description = prompt('Informe a descrição da vaga:')
+  const deadline = prompt('Informe a data limite (dd/mm/aaaa) para canditatura da vaga:')
+
+  const confirmation = confirm(
+    'Deseja criar uma nova vaga com essas informações?\n' +
+    'Nome: ' + name + '\nDescrição: ' + description + '\nData Limite: ' + deadline
+  )
+
+  if (confirmation) { // registrando nova vaga
+    const newJob = {
+      nome: name, 
+      descricao: description, 
+      data: deadline, 
+      candidates: []
+    }
+    jobs.push(newJob)
+    alert('Vaga registrada com sucesso!')
+  }
+  }
+  
+
+function viewJobVacancy (){ //Exibir vaga
+  const index = prompt('Informe o índice da vaga que deseja exibir:')
+  const job = jobs[index]
+
+  const candidatesInText = job.candidates.reduce(function(finalText, candidate){
+    return finalText + '\n -' + candidate
+  }, '')
+
+  alert(
+    'Vaga nº' + index +
+    '\nNome: ' + job.nome +
+    '\nDescrição: ' + job.descricao +
+    '\nData Limite: ' + job.deadline +
+    '\nQuantidade de Candidatos: ' + job.candidates.length + 
+    '\nCandidatos inscritos: ' + candidatesInText
+    )
+}
+
+function enrollCandidate (){ // Cadastrar candidato
+  let candidateName = prompt('Nome do candidato:')
+  let index = prompt('Índice da vaga:')
+  const job = jobs[index]
+
+  const confirmation = confirm(
+    'Desja inscrever o candidato ' + candidateName + ' na vaga ' + index + '?\n' +
+    'Nome: ' + job.nome + '\nDescrição: ' + job.descricao + '\nData Limite: ' + job.data
+    )
+
+  if (confirmation) {
+    job.candidates.push(candidateName)
+    alert('Inscrição do candidato realizada com sucesso!')
+  }
+}
+
+function deleteJobVacancy (){ // Deletar vaga
+  const index = prompt('Informe o índice da vaga que deseja excluir:')
+  const job = jobs[index]
+
+  const confirmation = confirm(
+    'Tem certeza que desja excluir a vaga ' + index + '?\n' +
+    'Nome: ' + job.nome + '\nDescrição: ' + job.descricao + '\nData Limite: ' + job.date
+  )
+
+  if(confirmation) {
+    jobs.splice(index, 1)
+    alert('Vaga excluída com suceesso!')
+  }
+}
+
+function menu() { // Menu interativo
+  let options = prompt(
       'JOB4YOU' +
       '\n\nMenu Inicial:' +
       '\n1 - Listar vagas disponíveis' +
@@ -14,38 +97,45 @@ function menu() {
       '\n5 - Excluir uma vaga' +
       '\n6 - Sair'
     )
-  } while (options !== '6')
+
+    return options
 }
 
-function listJobsOpenings () {
-  return alert('Vagas de emprego disponíveis:' +
-  '\n' + jobs)
+function execute() {
+  let option = ''
+
+  do {
+    option = menu()
+
+    switch(option) {
+      case '1':
+        if (jobs.length <= 0) {
+          alert('Nenhuma vaga disponível.')
+        } else {
+          listJobsOpenings()
+        }
+        
+        break
+      case '2':
+        newJobVacancy()
+        break
+      case '3':
+        viewJobVacancy()
+        break
+      case '4':
+        enrollCandidate()
+        break
+      case '5':
+        deleteJobVacancy()
+        break
+      case '6':
+        alert('Finalizando sistema...')
+        break
+      default:
+        alert('ERRO! Por favor, digite uma opção válida.')
+        break
+    }
+  } while (option !== '6')
 }
 
-function newJobVacancy () {
-  let jobOpportunity = {
-    job: prompt('Digite o nome da vaga:'),
-    descriptionJob: prompt('Digite a descrição da vaga:'),
-    deadline: (prompt('Digite o data limite da vaga: dia/mês/ano'))
-  }
-
-  let confirmation = confirm(
-    'Informações da vaga:' +
-    '\n' + this.job +
-    '\n' + this.descriptionJob +
-    '\n' + this.deadline +
-    '\n\nConfirmar o cadastro da nova vaga de emprego?'
-  )
-
-  if(confirmation === True) {
-    jobs.push(jobOpportunity)
-  } else {
-    alert('Cadastro cancelado! Retornando ao menu anterior...')
-  }
-}
-
-function viewJobVacancy (){}
-
-function enrollCandidate (){}
-
-function deleteJobVacancy (){}
+alert('Sistema finalizado!')
