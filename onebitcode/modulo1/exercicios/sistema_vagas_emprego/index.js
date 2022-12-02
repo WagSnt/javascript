@@ -58,7 +58,7 @@ function viewJobVacancy (){ //Exibir vaga
 function enrollCandidate (){ // Cadastrar candidato
   let candidateName = prompt('Nome do candidato:')
   let index = prompt('Índice da vaga:')
-  const job = jobs[index]
+  const job = jobs[index] // variável onde está a vaga de inscrição do candidato
 
   const confirmation = confirm(
     'Desja inscrever o candidato ' + candidateName + ' na vaga ' + index + '?\n' +
