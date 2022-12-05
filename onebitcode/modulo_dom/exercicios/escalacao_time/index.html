@@ -8,10 +8,33 @@
   <title>Escalação do Time</title>
 </head>
 <body>
-  <h1>Escalação do SC Internacional</h1>
-  <button onclick="addPlayer()">Escalar jogador</button>
-  <button onclick="removePlayer()">Remover jogador</button>
+  <h1>ESCALAÇÃO DE JOGADORES</h1>
+  <hr>
+  <section>
+    <h3>ESCALAR JOGADOR</h3>
+    <label for="playerposition">Posição: </label>
+    <input type="text" name="playerposition" id="playerposition">
 
-  <section id="lineup"></section>
+    <label for="playername">Nome: </label>
+    <input type="text" name="playername" id="playername">
+
+    <label for="playernumber">Nº do Jogador</label>
+    <input type="number" name="playernumber" id="playernumber">
+    <p></p>
+    <button onclick="addPlayer()">Escalar jogador</button>
+  </section>
+  <hr>
+  <section>
+    <h3>REMOVER JOGADOR</h3>
+    <label for="remove-number">Nº do jogador: </label>
+    <input type="number" name="remove-number" id="remove-number">
+    <button onclick="removePlayer()">Remover jogador</button>
+  </section>
+  <hr>
+  <section>
+    <h3>ESCALAÇÃO OFICIAL</h3>
+    <ul id="lineup"></ul>
+  </section>
+  
 </body>
 </html>
