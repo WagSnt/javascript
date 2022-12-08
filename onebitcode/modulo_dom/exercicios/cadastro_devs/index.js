@@ -71,8 +71,8 @@ addTechBtn.addEventListener('click', function(ev) {
 form.addEventListener('submit', function(ev) {
   ev.preventDefault()
 
-  const fullnameInput = document.getElementById('fullname').value
-  const inputRows = document.querySelectorAll('.inputRow').value
+  const fullnameInput = document.getElementById('fullname')
+  const inputRows = document.querySelectorAll('.inputRow')
 
   let tech = []
   inputRows.forEach(function (row) {
@@ -86,7 +86,7 @@ form.addEventListener('submit', function(ev) {
   developers.push(newDev)
   alert('Dev cadastrado com sucesso!')
 
-  fullnameInput.value = ''
+  fullnameInput.value = '' // Limpando campo
   inputRows.forEach(function (row) {
     row.remove()
   })
