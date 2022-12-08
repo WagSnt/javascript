@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,11 +12,15 @@
   <hr>
   
     <form id="fillingForm">
-      <label for="complete-name">Nome completo: </label>
-      <input type="text" name="complete-name" id="complete-name">
-      <p></p>
-      <h3>Tecnologias</h3>
-      <button id="addTechnology">Adicionar tecnologia</button>
+      <label for="fullname">Nome completo: </label>
+      <input type="text" name="fullname" id="fullname"><br><br>
+
+      <label for="addTechBtn">Tecnologias:</label><br>
+      <button type="button" id="addTechBtn">Adicionar tecnologia</button>
+      <ul style="list-style-type: none;" id="technologies"></ul><br>
+
+      <button>Cadastrar</button>
+      
     </form>
   
 </body>
