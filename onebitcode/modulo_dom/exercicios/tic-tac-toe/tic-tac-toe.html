@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="tic-tac-toe.js"defer></script>
+  <title>TIC TAC TOE GAME</title>
+</head>
+<body>
+  <main>
+    <h1>TIC-TAC-TOE GAME</h1>
+    <div>
+      <h2>JOGADORES</h2>
+      <label for="player1">Digite o nome do Player1: </label>
+      <input type="text" name="player1" id="player1">
+      <p></p>
+      <label for="player2">Digite o nome do Player2: </label>
+      <input type="text" name="player2" id="player2">
+      <p><button id="addPlayersBtn">Adicionar Jogadores</button></p>
+    </div>
+    <hr>
+    <div class="info">
+      <h3>JOGADORES:</h3>
+      <p id="namePlayer1" data-player1="">1º - </p>
+      <p id="namePlayer2" data data-player2="">2º - </p>
+      <h3>RODADA:</h3>
+      <p id="playerRound" data-round=""></p>
+    </div>
+    <div id="board">
+      <button class="block" data-mark=""></button>
+      <button class="block" data-mark=""></button>
+      <button class="block" data-mark=""></button>
+      <button class="block" data-mark=""></button>
+      <button class="block" data-mark=""></button>
+      <button class="block" data-mark=""></button>
+      <button class="block" data-mark=""></button>
+      <button class="block" data-mark=""></button>
+      <button class="block" data-mark=""></button>
+    </div>
+  </main>
+</body>
+</html>
