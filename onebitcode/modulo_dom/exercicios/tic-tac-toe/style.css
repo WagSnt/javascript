@@ -1,30 +1,30 @@
-@charset "UTF-8";
-
-main {
-  height: 100vh;
-  width: 100vw;
+body {
+  font-family: sans-serif;
 }
 
-#board {
-  width: 40rem;
-  height: 40rem;
+/* Fundo do tabuleiro*/
+#gameBoard {
+  background-color: #deb887;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-content: center;
-  gap: 0px;
-  padding: 10px;
-  border: 2px solid black;
-  grid-auto-rows: minmax(13.3rem, 13.3rem);
+  grid-template-columns: 6rem 6rem 6rem;
+  grid-auto-rows: 6rem 6rem 6rem;
+  gap: .5rem;
+  margin: 1.5rem;
+  max-width: 19rem;
 }
 
-.block {
-  background-color: antiquewhite;
-  color: cornflowerblue;
-  font-size: 6rem;
-  font-weight: bolder;
-  text-align: center;
-  border: 2px solid black;
-  padding: 50px;
+/* span (local de marcação dos jogadores */
+#gameBoard span {
+  background-color: beige;
+  display: grid;
+  place-content: center; /* Com GRID ele centraliza o conteúdo do span (X e O) */
+  font-size: 5rem;
 }
 
+#gameBoard span.win {
+  background-color: rgb(2, 167, 2);
+}
 
+.cursorPointer {
+  cursor: pointer;
+}
