@@ -3,6 +3,11 @@ const input = document.getElementById('calculationArea')
 const resultInput = document.getElementById('result')
 const allowedKeys = ["(", ")", "/", "*", "-", "+", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0", ".", "%", " "] //lista de caracteres permitidos para digitação
 
+function buttonPress(ev) { // dando função para cada botão
+  const value = ev.currentTarget.dataset.value // pegando o valor de cada botão
+  input.value += value // adicionando ao input do calculo
+}
+
 //clear
 function clearBtn() {
   input.value = ''
@@ -37,4 +42,4 @@ function copy(ev) {
   }
 }
 
-export {clearBtn, keydownBtn, copy}
+export {buttonPress, clearBtn, keydownBtn, copy}
